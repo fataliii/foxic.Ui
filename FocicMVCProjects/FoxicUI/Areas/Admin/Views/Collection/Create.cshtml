@@ -1,0 +1,40 @@
+﻿@using Foxic.Buisness.ViewModels.AreasViewModels.CollectionVM
+@model CollectionCreateVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4 style="margin-left:350px">Collection</h4>
+<hr />
+<div class="row" style="margin-left:350px">
+    <div class="col-md-4">
+        @*metodu Isletmek ucun post metodu yaziriq ve sekilin islemesi ucun enctype*@
+        <form asp-action="Create" method="post" class="row g-3" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CollectionName" class="control-label"></label>
+                <input asp-for="CollectionName" class="form-control" />
+                <span asp-validation-for="CollectionName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl" class="control-label"></label>
+                <input asp-for="ImageUrl" class="form-control" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" style="margin-left:350px">Back to List</a>
+</div>
+@section scripts{
+    <partial name="_ValidationPartial"></partial>
+}
+
